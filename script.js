@@ -1,7 +1,11 @@
-const name = "Łukasz";
-let age = 23;
-const ulubionaPotrawa = "Golonka";
+//Template strings
 
-console.log(name);
-console.log(age);
-console.log(ulubionaPotrawa);
+//zadanie 1 
+const name = 'Łukasz';
+const nameAnimal = 'Dog';
+
+console.log(`Cześć, jestem ${name}, a to jest ${nameAnimal} - mój pies`)
+
+//zadanie 2 
+const ageAnimal = 2;
+console.log(nameAnimal + " ma już " + ageAnimal + " lat!");
