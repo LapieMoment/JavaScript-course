@@ -1,9 +1,15 @@
-const img = document.querySelector('img')
-img.setAttribute('src', 'lena.png')
-img.setAttribute('alt', 'Image from internet')
+const img = document.querySelector('.item1')
+const btnArrow = document.querySelector('.arrow')
+const icon = document.querySelector('.fas')
 
-const fun = () => {
-    console.log('pig pig pig')
+const showImg = () => {
+	img.classList.toggle('hide')
+	if(img.classList.contains('hide')){
+		icon.style.transform = 'rotate(180deg)'
+	}
+	else{
+		icon.style.transform = 'rotate(0deg)'
+	}
 }
 
-setInterval(fun, 2000);
+btnArrow.addEventListener('click', showImg)
