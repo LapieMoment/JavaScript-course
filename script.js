@@ -1,11 +1,20 @@
-const heading = document.querySelector('h1');
-console.log(heading)
+const add = document.querySelector('.add')
+const remove = document.querySelector('.remove')
+const toggle = document.querySelector('.toggle')
+const text = document.querySelector('p')
 
-const heading2 = document.querySelectorAll('p');
-console.log(heading2)
+const addFunction = () => {
+    text.classList.add('test')
+}
 
-const heading3= document.querySelectorAll('.test');
-console.log(heading3)
+const removeFunction = () => {
+    text.classList.remove('test')
+}
 
-const heading4= document.querySelectorAll('.test #test');
-console.log(heading4)
+const toggleFunction = () => {
+    text.classList.toggle('test')
+}
+
+add.addEventListener('click', addFunction)
+remove.addEventListener('click', removeFunction)
+toggle.addEventListener('click', toggleFunction)
