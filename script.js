@@ -1,19 +1,27 @@
-const ul = document.createElement('ul')
-document.body.append(ul)
-const number = 10
-let lastLi
-for(let i = 1; i <= number; i++){
-    const li = document.createElement('li')
-    li.textContent = i
-    ul.append(li)    
-    if(i == 10){
-        lastLi = li
-        lastLi.textContent = 'Jestem ostatnim elementem.'
-    }
+const p1 = document.querySelector('.p1')
+const p2 = document.querySelector('.p2')
+const btn1 = document.querySelector('.btn1')
+const btn2 = document.querySelector('.btn2')
+const divSquare = document.querySelector('.square')
+
+const dblclick = () => {
+    console.log('cześć')
 }
 
-//lub: const LastiLi = document.querySelector('li:last-child')
+const click = () => {
+    p1.classList.toggle('show')
+    p2.classList.toggle('show')
+}
 
-lastLi.style.background = 'blue'
-lastLi.style.padding = '20px 40px'
-lastLi.style.fontSize = '48px'
+const changeRed = () => {
+    divSquare.style.background = 'red'
+}
+
+const changeBlue = () => {
+    divSquare.style.background = 'blue'
+}
+
+divSquare.addEventListener('mousemove', changeRed)
+divSquare.addEventListener('mouseleave', changeBlue)
+btn1.addEventListener('dblclick', dblclick)
+btn2.addEventListener('click', click)
