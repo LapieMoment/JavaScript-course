@@ -1,20 +1,19 @@
-const add = document.querySelector('.add')
-const remove = document.querySelector('.remove')
-const toggle = document.querySelector('.toggle')
-const text = document.querySelector('p')
-
-const addFunction = () => {
-    text.classList.add('test')
+const ul = document.createElement('ul')
+document.body.append(ul)
+const number = 10
+let lastLi
+for(let i = 1; i <= number; i++){
+    const li = document.createElement('li')
+    li.textContent = i
+    ul.append(li)    
+    if(i == 10){
+        lastLi = li
+        lastLi.textContent = 'Jestem ostatnim elementem.'
+    }
 }
 
-const removeFunction = () => {
-    text.classList.remove('test')
-}
+//lub: const LastiLi = document.querySelector('li:last-child')
 
-const toggleFunction = () => {
-    text.classList.toggle('test')
-}
-
-add.addEventListener('click', addFunction)
-remove.addEventListener('click', removeFunction)
-toggle.addEventListener('click', toggleFunction)
+lastLi.style.background = 'blue'
+lastLi.style.padding = '20px 40px'
+lastLi.style.fontSize = '48px'
