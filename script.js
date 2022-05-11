@@ -1,41 +1,35 @@
-const btnConv = document.querySelector('.conv')
-const btnReset = document.querySelector('.reset')
-const btnChange = document.querySelector('.change')
-const valueS = document.querySelector('#converter')
-const result = document.querySelector('.result')
-const one = document.querySelector('.one')
-const two = document.querySelector('.two')
+const btn = document.querySelector('.burger')
+const uList = document.querySelector('ul')
+const iconBurger = document.querySelector('i')
+const iconExit = document.querySelector('i:nth-child(2)')
 
-const convert = () => {
-	if (valueS.value !== '' && one.textContent === '°C') {
-		let wynik = (valueS.value * 1.8 + 32).toFixed(2)
-		result.textContent = valueS.value + `°C to ${wynik} °F`
-		valueS.value = ''
-	} else if(valueS.value !== '' && one.textContent === '°F'){
-		let wynik = ((valueS.value - 32) / 1.8).toFixed(2)
-		result.textContent = valueS.value + `°F to ${wynik} °C`
-		valueS.value = ''
-	}
+	iconExit.classList.remove('fas')
+	iconExit.classList.remove('fa-bars')
+	
+const show = () => {
+	uList.classList.add("active")
+	btn.classList.add("active")
+	iconBurger.classList.remove('fas')
+	iconBurger.classList.remove('fa-bars')
+	iconExit.classList.add('fas')
+	iconExit.classList.add('fa-times')
 }
 
-const reset = () => {
-	result.textContent = ''
-	valueS.value = ''
+const hidden = () => {
+	uList.classList.remove('active')	
+	btn.classList.remove('active')	
+	iconExit.classList.remove('fas')
+	iconExit.classList.remove('fa-times')
+	iconBurger.classList.add('fas')
+	iconBurger.classList.add('fa-bars')
 }
 
 const change = () => {
-	if (one.textContent === '°C') {
-		one.textContent = '°F'
-		two.textContent = '°C'
-	} else {
-		one.textContent = '°C'
-		two.textContent = '°F'
+	if(uList.classList.contains('active')){
+		hidden()
+	}else{
+		show()
 	}
 }
 
-btnConv.addEventListener('click', convert)
-btnReset.addEventListener('click', reset)
-btnChange.addEventListener('click', change)
-
-//°F = (°C × 1.8) + 32
-//°C = (°F − 32) /1.8
+btn.addEventListener('click',change)
