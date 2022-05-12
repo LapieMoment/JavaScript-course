@@ -1,34 +1,15 @@
-function Person(name, age) {
-	this.name = name
-	this.age = age
-}
+const btn = document.querySelector('button')
+const img = document.querySelector('img')
 
-Person.prototype.showName = function () {
-	console.log(`Mam na imie ${this.name}`)
-}
-Person.prototype.showAge = function () {
-	console.log(`Mam ${this.age} lat`)
-}
+const URL = 'https://dog.ceo/api/breeds/image/random'
 
-const person1 = new Person('Maciek', 11)
-person1.showAge()
-person1.showName()
+// fetch(URL).then().catch()
 
-//--------------------------------------------------------------------
-
-class Person2 {
-	constructor(name, age) {
-		this.name = name
-		this.age = age
-	}
-	showName() {
-		console.log(`Mam na imie ${this.name}`)
-	}
-	showAge() {
-		console.log(`Mam ${this.age} lat`)
-	}
-}
-
-const person2 = new Person2('Monia',22)
-person2.showAge()
-person2.showName()
+//fetch - służy do pobrania danych
+//then - mówi co zrobimy z nimi kiedy wszystko pobierzemy
+//catch - wyłapuje błędy
+btn.addEventListener('click', () => {
+	fetch(URL)
+		.then(response => response.json())
+		.then(data => img.setAttribute('src', data.message))
+})
